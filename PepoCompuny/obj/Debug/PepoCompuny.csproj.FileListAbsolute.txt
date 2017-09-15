@@ -1,0 +1,9 @@
+C:\Users\Musta\Documents\Files\PepoCompuny\PepoCompuny\bin\Debug\PepoCompuny.exe.config
+C:\Users\Musta\Documents\Files\PepoCompuny\PepoCompuny\obj\Debug\PepoCompuny.csprojResolveAssemblyReference.cache
+C:\Users\Musta\Documents\Files\PepoCompuny\PepoCompuny\obj\Debug\PepoCompuny.Form1.resources
+C:\Users\Musta\Documents\Files\PepoCompuny\PepoCompuny\obj\Debug\PepoCompuny.Properties.Resources.resources
+C:\Users\Musta\Documents\Files\PepoCompuny\PepoCompuny\obj\Debug\PepoCompuny.csproj.GenerateResource.Cache
+C:\Users\Musta\Documents\Files\PepoCompuny\PepoCompuny\bin\Debug\PepoCompuny.exe
+C:\Users\Musta\Documents\Files\PepoCompuny\PepoCompuny\bin\Debug\PepoCompuny.pdb
+C:\Users\Musta\Documents\Files\PepoCompuny\PepoCompuny\obj\Debug\PepoCompuny.exe
+C:\Users\Musta\Documents\Files\PepoCompuny\PepoCompuny\obj\Debug\PepoCompuny.pdb
