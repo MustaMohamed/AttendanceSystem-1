@@ -7,3 +7,4 @@ C:\Users\Musta\Documents\Files\PepoCompuny\PepoCompuny\bin\Debug\PepoCompuny.exe
 C:\Users\Musta\Documents\Files\PepoCompuny\PepoCompuny\bin\Debug\PepoCompuny.pdb
 C:\Users\Musta\Documents\Files\PepoCompuny\PepoCompuny\obj\Debug\PepoCompuny.exe
 C:\Users\Musta\Documents\Files\PepoCompuny\PepoCompuny\obj\Debug\PepoCompuny.pdb
+C:\Users\Musta\Documents\Files\PepoCompuny\PepoCompuny\obj\Debug\PepoCompuny.Form2.resources

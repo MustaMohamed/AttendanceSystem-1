@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PepoCompuny {
-
+	[Serializable]
 	public class TimeNode {
 		private int mHour;
 		private int mMinut;
@@ -39,14 +39,14 @@ namespace PepoCompuny {
 			return mHour.ToString() + " : " + mMinut.ToString() + "\n";
 		}
 	}
-
+	[Serializable]
 	public class WorkTime {
 		private TimeNode mArriveTime;
 		private TimeNode mLeaveTime;
 		private static readonly TimeNode mDefaultArrive = new TimeNode(9, 0);
 		private static readonly TimeNode mDefaultLeave = new TimeNode(5, 0);
 		private int mDelayMinuts;
-		private int mPenaltyDelayHours;
+		private double mPenaltyDelayHours;
 		private int mOverTimeMunits;
 		private double mOverTimeHours;
 		private bool mHoursDelayPermission;
@@ -57,7 +57,7 @@ namespace PepoCompuny {
 		public TimeNode ArriveTime { get { return mArriveTime; } set { mArriveTime = value; } }
 		public TimeNode LeaveTime { get { return mLeaveTime; } set { mLeaveTime = value; } }
 		public int DelayMinuts { get { return mDelayMinuts; } set { mDelayMinuts = value; } }
-		public int PenaltyDelayHours { get { return mPenaltyDelayHours; } set { mPenaltyDelayHours = value; } }
+		public double PenaltyDelayHours { get { return mPenaltyDelayHours; } set { mPenaltyDelayHours = value; } }
 		public int OverTimeMinuts { get { return mOverTimeMunits; } set { mOverTimeMunits = value; } }
 		public double OverTimeHours { get { return mOverTimeHours; } set { mOverTimeHours = value; } }
 		public bool HoursDelayPermission { get { return mHoursDelayPermission; } set { mHoursDelayPermission = value; } }
@@ -97,7 +97,7 @@ namespace PepoCompuny {
 			return (pnt <= 15) ? 0 : pnt;
 		}
 
-		private int CalculatePenaltyHours() {
+		private double CalculatePenaltyHours() {
 			if (mHolidayPermission) return 0;
 			if (mAbsentDayPermission) return 8;
 			if (mAbsentDayNoPermission) return 16;

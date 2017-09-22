@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PepoCompuny {
+	[Serializable]
 	public class MonthSamary : IComparable {
 		private String mMonthName;
 		private double mDefaultMonthSalary;
@@ -19,7 +20,7 @@ namespace PepoCompuny {
 		public MonthSamary(String monthName, double monthSalary) {
 			this.mMonthName = monthName;
 			this.mDefaultMonthSalary = monthSalary;
-			this.mDefaultHourSalary = this.mDefaultMonthSalary / (30.0 * 24.0);
+			this.mDefaultHourSalary = monthSalary / (30.0 * 24.0);
 			this.mMonthHistory = new Dictionary<String,Day>();
 		}
 
@@ -31,17 +32,15 @@ namespace PepoCompuny {
 		}
 
 		public void AddDay(Day tempDay) {
-			tempDay.DefaultHourSalary = this.DefaultHourSalary;
 			if (!this.mMonthHistory.ContainsKey(tempDay.DayName)) {
 				this.mMonthHistory.Add(tempDay.DayName, new Day(tempDay));
 			} else this.mMonthHistory[tempDay.DayName] = new Day(tempDay);
 		}
 
 		public double TotalSalary() {
-			double totalSalary = this.mDefaultMonthSalary;
-			foreach (Day tempDay in this.mMonthHistory.Values) {
-				totalSalary += tempDay.OverTimeMoney - tempDay.PenaltyDelayHours - tempDay.Solfa;
-			} return totalSalary;
+			double totalSalary = this.mDefaultMonthSalary - this.TotalSolfaMoney()
+				- this.TotalPenaltyMoney() + this.TotalOverTimeSalary();
+			return totalSalary;
 		}
 
 		public double TotalOverTimeSalary() {
@@ -63,6 +62,13 @@ namespace PepoCompuny {
 			foreach (Day tempDay in this.mMonthHistory.Values) {
 				totalPenaltyMoney += tempDay.DelayPenaltyMoney;
 			} return totalPenaltyMoney;
+		}
+
+		public double TotalDelayHours() {
+			double totalDelayHours = 0.0;
+			foreach (Day tempDay in this.mMonthHistory.Values) {
+				totalDelayHours += tempDay.DelayMinuts;
+			} return totalDelayHours / 60.0;
 		}
 
 		public double TotalOverTimeHours() {

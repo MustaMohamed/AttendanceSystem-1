@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PepoCompuny {
+	[Serializable]
 	public class Day : WorkTime , IComparable {
 		private String mDayName;
 		private DateTime mDate;
@@ -16,7 +17,7 @@ namespace PepoCompuny {
 
 		public String DayName { get { return mDayName; } set { mDayName = value; } }
 		public DateTime Date { get { return mDate; } set { mDate = value; } }
-		public double DelayPenaltyMoney { get { return mDefaultHourSalary; } set { mDelayPenaltySalary = value; } }
+		public double DelayPenaltyMoney { get { return mDelayPenaltySalary; } set { mDelayPenaltySalary = value; } }
 		public double Solfa { get { return mDaySolfa; } set { mDaySolfa = value; } }
 		public double OverTimeMoney { get { return mOverTimeSalary; } set { mOverTimeSalary = value; } }
 		public double DefaultHourSalary { get { return mDefaultHourSalary; } set { mDefaultHourSalary = value; mDefaultOverTimeHourSalary = mDefaultHourSalary * 1.5; } }
@@ -49,7 +50,7 @@ namespace PepoCompuny {
 			tempDay.AbsentDayPermission, tempDay.AbsentDayNoPermission, tempDay.HoliDayPermission) {
 			this.mDate = tempDay.Date;
 			this.mDayName = tempDay.DayName;
-			this.mDefaultHourSalary = tempDay.DelayPenaltyMoney;
+			this.mDefaultHourSalary = tempDay.DefaultHourSalary;
 			this.mDaySolfa = tempDay.Solfa;
 			this.mDefaultOverTimeHourSalary = tempDay.mDefaultOverTimeHourSalary;
 			this.mDelayPenaltySalary = this.PenaltyDelayHours * this.mDefaultHourSalary;
@@ -75,8 +76,8 @@ namespace PepoCompuny {
 			String str = base.ToString();
 			str += this.DayName + "\n";
 			str += this.mDefaultHourSalary.ToString() + " | " + this.mDefaultOverTimeHourSalary + "\n";
-			str += this.mDelayPenaltySalary + " | " + this.Solfa + " | " + this.OverTimeMoney + "\n";
-			str += (this.OverTimeMoney - this.DelayPenaltyMoney - this.Solfa).ToString();
+			str += this.mDelayPenaltySalary + " | " + this.Solfa + " | " + this.mOverTimeSalary + "\n";
+			str += (this.mOverTimeSalary - this.mDelayPenaltySalary - this.mDaySolfa).ToString() + "BlaVla";
 			return str;
 		}
 
